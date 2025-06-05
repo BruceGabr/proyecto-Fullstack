@@ -36,6 +36,13 @@ const createVenta = (req, res) => {
     });
 };
 
+const updateVenta = (req, res) => {
+    VentaModel.actualizarVenta(req.params.id, req.body, (err, result) => {
+        if (err) return res.status(500).json({ error: err });
+        res.json({ mensaje: 'Venta actualizada' });
+    });
+};
+
 const deleteVenta = (req, res) => {
     VentaModel.eliminarVenta(req.params.id, (err, result) => {
         if (err) return res.status(500).json({ error: err });
@@ -47,5 +54,6 @@ module.exports = {
     getVentas,
     getVentaById,
     createVenta,
-    deleteVenta,
+    updateVenta,
+    deleteVenta
 };

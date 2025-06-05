@@ -5,6 +5,7 @@ const ventasController = require('../controllers/ventas.controller');
 router.get('/', ventasController.getVentas);
 router.get('/:id', ventasController.getVentaById);
 router.post('/', ventasController.createVenta);
+router.put('/:id', ventasController.updateVenta);
 router.delete('/:id', ventasController.deleteVenta);
 
 module.exports = router;

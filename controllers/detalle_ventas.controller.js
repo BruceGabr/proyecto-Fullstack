@@ -36,6 +36,13 @@ const createDetalle = (req, res) => {
     });
 };
 
+const updateDetalle = (req, res) => {
+    DetalleVentaModel.actualizarDetalleVenta(req.params.id, req.body, (err, result) => {
+        if (err) return res.status(500).json({ error: err });
+        res.json({ mensaje: 'Detalle de venta actualizado' });
+    });
+};
+
 const deleteDetalle = (req, res) => {
     DetalleModel.eliminarDetalle(req.params.id, (err, result) => {
         if (err) return res.status(500).json({ error: err });
@@ -47,5 +54,6 @@ module.exports = {
     getDetalles,
     getDetalleById,
     createDetalle,
-    deleteDetalle,
+    updateDetalle,
+    deleteDetalle
 };

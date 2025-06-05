@@ -30,6 +30,16 @@ const crearVenta = (datos, callback) => {
     );
 };
 
+// Actualizar venta
+const actualizarVenta = (id, datos, callback) => {
+    const { cliente_id, usuario_id, fecha, total } = datos;
+    db.query(
+        'UPDATE ventas SET cliente_id = ?, usuario_id = ?, fecha = ?, total = ? WHERE id = ?',
+        [cliente_id, usuario_id, fecha, total, id],
+        callback
+    );
+};
+
 // Eliminar venta
 const eliminarVenta = (id, callback) => {
     db.query('DELETE FROM ventas WHERE id = ?', [id], callback);
@@ -41,5 +51,6 @@ module.exports = {
     obtenerVentas,
     obtenerVentaPorId,
     crearVenta,
-    eliminarVenta,
+    actualizarVenta,
+    eliminarVenta
 };

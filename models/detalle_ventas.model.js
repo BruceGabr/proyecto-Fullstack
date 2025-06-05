@@ -30,6 +30,16 @@ const crearDetalle = (datos, callback) => {
     );
 };
 
+// Actualizar detalle
+const actualizarDetalle = (id, datos, callback) => {
+    const { venta_id, producto_id, cantidad, precio_unitario, subtotal } = datos;
+    db.query(
+        'UPDATE detalle_ventas SET venta_id = ?, producto_id = ?, cantidad = ?, precio_unitario = ?, subtotal = ? WHERE id = ?',
+        [venta_id, producto_id, cantidad, precio_unitario, subtotal, id],
+        callback
+    );
+};
+
 // Eliminar detalle
 const eliminarDetalle = (id, callback) => {
     db.query('DELETE FROM detalle_ventas WHERE id = ?', [id], callback);
@@ -41,5 +51,6 @@ module.exports = {
     obtenerDetalles,
     obtenerDetallePorId,
     crearDetalle,
-    eliminarDetalle,
+    actualizarDetalle,
+    eliminarDetalle
 };
