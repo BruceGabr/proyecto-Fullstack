@@ -37,7 +37,7 @@ const createDetalle = (req, res) => {
 };
 
 const updateDetalle = (req, res) => {
-    DetalleVentaModel.actualizarDetalleVenta(req.params.id, req.body, (err, result) => {
+    DetalleModel.actualizarDetalle(req.params.id, req.body, (err, result) => {
         if (err) return res.status(500).json({ error: err });
         res.json({ mensaje: 'Detalle de venta actualizado' });
     });
