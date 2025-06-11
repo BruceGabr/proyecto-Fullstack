@@ -1,0 +1,34 @@
+# Dependencias
+node_modules/
+
+# Archivos de compilación / distribución
+dist/
+build/
+
+# Variables de entorno (credenciales, configuración local)
+.env
+.env.local
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Sistema operativo (macOS, Windows)
+.DS_Store
+Thumbs.db
+
+# Configuraciones del editor (VS Code)
+.vscode/
+
+# Archivos de cache
+.cache/
+
+# Archivos temporales
+*.tmp
+*.temp
+
+# Otros archivos que no quieres subir (si usas, por ejemplo, Docker)
+docker-compose.override.yml
+
